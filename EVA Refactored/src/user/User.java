@@ -2,6 +2,7 @@ package user;
 
 public abstract class User {
 
+    private int id = 0;
     private int authorityLevel;
     //1 to Professor and 2 to Student
     private int cpf;
@@ -20,6 +21,14 @@ public abstract class User {
 
     public int getCpf() {
         return cpf;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setCpf(int cpf) {

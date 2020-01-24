@@ -3,6 +3,7 @@ package main;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import exceptions.ExceptionManagement;
 import professor.Professor;
 import student.Student;
 import user.User;
@@ -16,11 +17,14 @@ public class Initializer {
     public User user;
 
     TextOptions text = new TextOptions();
+    ExceptionManagement exception = new ExceptionManagement();
+    LoggedPage login = new LoggedPage();
+    int id = -1;
 
     public void Init(){
         while(true){
-            text.MainOptions();
-            int choice = input.nextInt();
+            text.mainOptions();
+            int choice = exception.scanInt("Type here: ");
 
             if(choice == 0){
                 System.out.println("\nClosing the system.");
@@ -28,30 +32,62 @@ public class Initializer {
             }
 
             else if(choice == 1){
-                text.CreatingOptions();
-                choice = input.nextInt();
+                text.creatingOptions();
+                choice = exception.scanInt("Type here: ");
+                id++;
                 user = setAuthority(choice, user);
-                System.out.println("user authority: " + user.getAuthorityLevel());
                 user = setInfo(user);
                 users.add(user);
                 //testArraylist(users);
+
+                System.out.println("You succesfully created an account.");
             }
 
             else{
+                int cpf = exception.scanInt("CPF: ");
+                System.out.print("Password: ");
+                String password = input.nextLine();
+
+                int userId = searchUser(cpf, password, users);
+                if (userId == -1){
+                    System.out.println("User does not exist.");
+                    return;
+                }
+
+                System.out.println("Username: " + users.get(userId).getUsername());
+                if (users.get(userId).getAuthorityLevel() == 1){
+                    System.out.println("You are a professor.");
+                }
+                else{
+                    System.out.println("You are a student.");
+                }
+
+                login.loginPage(users, userId);
 
             }
         }
     }
 
-    private User setInfo(User user) {
-        System.out.print("CPF: ");
-        int cpf = input.nextInt();
-        user.setCpf(cpf);
+    public int searchUser(int cpf, String password, ArrayList<User> users) {
+        for (User c: users) {
+            if (c != null){
+                if (c.getCpf() == cpf && c.getPassword().equals(password)){
+                    System.out.println("Login was done.\n");
+                    return c.getId();
+                }
+            }
+        }
+        return -1;
+    }//TODO Tentar passar para User, ou criar classe abstrata para User, professor e student
 
+    private User setInfo(User user) {
+        user.setId(id);
+
+        int cpf = exception.scanInt("CPF: ");
+        user.setCpf(cpf);
         System.out.print("Username: ");
         String username = input.nextLine();
         user.setUsername(username);
-        input.nextLine();
         System.out.print("Password: ");
         String password = input.nextLine();
         user.setPassword(password);
