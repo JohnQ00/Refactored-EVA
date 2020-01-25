@@ -1,5 +1,7 @@
 package user;
 
+import java.util.ArrayList;
+
 public abstract class User {
 
     private int id = 0;
@@ -14,6 +16,8 @@ public abstract class User {
     private int age;
 
     public String messageBox[][][] = new String[500][500][500];
+
+    public abstract int searchId(ArrayList<User> users, String searchedUsername);
 
     public int getAge() { return age; }
 

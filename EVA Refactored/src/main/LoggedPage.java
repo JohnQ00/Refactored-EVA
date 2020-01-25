@@ -1,5 +1,7 @@
 package main;
 
+import classes.ClassEntering;
+import classes.ClassManagement;
 import command.Command;
 import command.Option;
 import exceptions.ExceptionManagement;
@@ -26,9 +28,9 @@ public class LoggedPage {
             if (choice == 0 || choice > 7) return;
             else {
                 if (users.get(userId).getAuthorityLevel() == 1) {
-                    option.executeOption(users, userId, studentOptions.get(String.valueOf(choice)));
-                } else {
                     option.executeOption(users, userId, professorOptions.get(String.valueOf(choice)));
+                } else {
+                    option.executeOption(users, userId, studentOptions.get(String.valueOf(choice)));
                 }
             }
         }
@@ -36,12 +38,12 @@ public class LoggedPage {
 
     public void fillHashMap(){
         studentOptions.put("1", new ProfileManagement());
-//        studentOptions.put("2", new ProfileManagement());
+        studentOptions.put("2", new ClassEntering());
 //        studentOptions.put("3", new ProfileManagement());
 //        studentOptions.put("4", new ProfileManagement());
 //        studentOptions.put("5", new ProfileManagement());
-//        professorOptions.put("1", new ProfileManagement());
-//        professorOptions.put("2", new ProfileManagement());
+        professorOptions.put("1", new ProfileManagement());
+        professorOptions.put("2", new ClassManagement());
 //        professorOptions.put("3", new ProfileManagement());
 //        professorOptions.put("4", new ProfileManagement());
 //        professorOptions.put("5", new ProfileManagement());

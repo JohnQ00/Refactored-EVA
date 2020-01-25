@@ -28,7 +28,7 @@ public class Initializer {
 
             if(choice == 0){
                 System.out.println("\nClosing the system.");
-                break;
+                return;
             }
 
             else if(choice == 1){
@@ -51,7 +51,7 @@ public class Initializer {
                 int userId = searchUser(cpf, password, users);
                 if (userId == -1){
                     System.out.println("User does not exist.");
-                    return;
+                    break;
                 }
 
                 System.out.println("Username: " + users.get(userId).getUsername());
@@ -66,6 +66,7 @@ public class Initializer {
 
             }
         }
+        Init();
     }
 
     public int searchUser(int cpf, String password, ArrayList<User> users) {

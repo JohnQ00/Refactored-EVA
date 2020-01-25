@@ -2,6 +2,8 @@ package student;
 
 import user.User;
 
+import java.util.ArrayList;
+
 public class Student extends User {
     private int index = 0;
     private int registrationNumber;
@@ -26,6 +28,16 @@ public class Student extends User {
 //    public void setMonitor(boolean monitor) {
 //        this.monitor = monitor;
 //    }
+
+    @Override
+    public int searchId(ArrayList<User> users, String searchedUsername) {
+        for (int i = 0; i < 500; i++){
+            if (searchedUsername.equals(users.get(i).getUsername())){
+                return i;
+            }
+        }
+        return -1;
+    }
 
     @Override
     public void setAge(int age){

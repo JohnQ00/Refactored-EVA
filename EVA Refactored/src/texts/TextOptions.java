@@ -57,4 +57,9 @@ public class TextOptions {
         System.out.println("6 to Formation");
         System.out.println("7 to Specialization");
     }
+    public void classOptions(){
+        System.out.println("\n0 to Return to main screen");
+        System.out.println("1 to Create a class");
+        System.out.println("2 to Add students");
+    }
 }
