@@ -1,6 +1,5 @@
 package tests;
 
-public class Factory {
-
-
+public interface Factory {
+        Tests testCreation();
 }

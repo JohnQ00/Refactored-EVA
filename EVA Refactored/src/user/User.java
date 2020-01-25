@@ -1,5 +1,7 @@
 package user;
 
+import messages.MessageBox;
+
 import java.util.ArrayList;
 
 public abstract class User {
@@ -14,10 +16,26 @@ public abstract class User {
     private String fullName = new String();
     private String email = new String();
     private int age;
-
-    public String messageBox[][][] = new String[500][500][500];
+    private ArrayList<MessageBox> messages = new ArrayList<>(500);
+    private int size = messages.size();
 
     public abstract int searchId(ArrayList<User> users, String searchedUsername);
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    public MessageBox getMessages(int classId) {
+        return messages.get(classId);
+    }
+
+    public void setMessages(MessageBox classIn) {
+        this.messages.add(classIn);
+    }
 
     public int getAge() { return age; }
 

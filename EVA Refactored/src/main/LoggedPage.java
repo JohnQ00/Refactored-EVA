@@ -5,6 +5,7 @@ import classes.ClassManagement;
 import command.Command;
 import command.Option;
 import exceptions.ExceptionManagement;
+import messages.MessageManagement;
 import profile.ProfileManagement;
 import texts.TextOptions;
 import user.User;
@@ -39,12 +40,12 @@ public class LoggedPage {
     public void fillHashMap(){
         studentOptions.put("1", new ProfileManagement());
         studentOptions.put("2", new ClassEntering());
-//        studentOptions.put("3", new ProfileManagement());
+        studentOptions.put("3", new MessageManagement());
 //        studentOptions.put("4", new ProfileManagement());
 //        studentOptions.put("5", new ProfileManagement());
         professorOptions.put("1", new ProfileManagement());
         professorOptions.put("2", new ClassManagement());
-//        professorOptions.put("3", new ProfileManagement());
+        professorOptions.put("3", new MessageManagement());
 //        professorOptions.put("4", new ProfileManagement());
 //        professorOptions.put("5", new ProfileManagement());
 //        professorOptions.put("6", new ProfileManagement());

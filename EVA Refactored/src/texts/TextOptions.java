@@ -62,4 +62,9 @@ public class TextOptions {
         System.out.println("1 to Create a class");
         System.out.println("2 to Add students");
     }
+    public void messageOptions(){
+        System.out.println("\n0 to Return to main screen");
+        System.out.println("1 to Send a message");
+        System.out.println("2 to Check your message box");
+    }
 }
