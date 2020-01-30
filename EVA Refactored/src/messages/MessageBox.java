@@ -3,11 +3,20 @@ package messages;
 public class MessageBox {
     int index = 0;
     int index2 = 0;
+    private int messageId;
     private String messageSent[] = new String[500];
-    private String receiverUsername[] = new String[500];
+    private String senderUsername[] = new String[500];
 
     public String[] getMessageSent() {
         return messageSent;
+    }
+
+    public int getMessageId() {
+        return messageId;
+    }
+
+    public void setMessageId(int messageId) {
+        this.messageId = messageId;
     }
 
     public void setMessageSent(String messageSent) {
@@ -15,12 +24,12 @@ public class MessageBox {
         index2++;
     }
 
-    public String[] getReceiverUsername() {
-        return receiverUsername;
+    public String[] getSenderUsername() {
+        return senderUsername;
     }
 
-    public void setReceiverUsername(String receiverUsername) {
-        this.receiverUsername[index] = receiverUsername;
+    public void setSenderUsername(String senderUsername) {
+        this.senderUsername[index] = senderUsername;
         index++;
     }
 }

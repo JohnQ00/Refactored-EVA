@@ -49,10 +49,18 @@ public class SearchingInClass {
     }
 
     protected int returnProfessorIdthroughClassId(String classChose, ArrayList<User> users){
-        for (int i = 0; i < 500; i++){
+        for (int i = 0; i < users.size(); i++){
             for (int j = 0; j < 500; j++) {
-                if (classChose.equals(((Professor) users.get(i)).getClasses(j).getCourse())){
-                    return i;
+                if (users.get(i) == null){return -1;}
+                else {
+                    if (users.get(i).getAuthorityLevel() == 1) {
+                        if (((Professor) users.get(i)).getClassesQuantity() == 0) {
+                            return -1;
+                        }
+                        if (classChose.equals(((Professor) users.get(i)).getClasses(j).getCourse())) {
+                            return i;
+                        }
+                    }
                 }
             }
         }

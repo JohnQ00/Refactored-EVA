@@ -12,7 +12,7 @@ public class ClassCreation {
     private Class classes = new Class();
     Scanner entry = new Scanner(System.in);
     ExceptionManagement exception = new ExceptionManagement();
-    int id = 0;
+    int id = -1;
 
     public void classCreation(ArrayList<User> users, int userId){
         setClassInfo(users, userId);
@@ -28,8 +28,8 @@ public class ClassCreation {
         classes.setCreator(users.get(userId).getUsername());
         ((Professor) users.get(userId)).setClasses(classes);
         System.out.println("\nYour class was successfully created.\n");
-        ((Professor) users.get(userId)).setClassesQuantity(id);
-        //printClass(users,userId);
+        ((Professor) users.get(userId)).setClassesQuantity(id + 1);
+        printClass(users,userId);
     }
 
     private void printClass(ArrayList<User> users, int userId){

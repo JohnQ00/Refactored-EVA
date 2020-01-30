@@ -5,7 +5,7 @@ import messages.MessageBox;
 import java.util.ArrayList;
 
 public abstract class User {
-
+    private int messagesQuantity;
     private int id = 0;
     private int authorityLevel;
     //1 to Professor and 2 to Student
@@ -21,20 +21,28 @@ public abstract class User {
 
     public abstract int searchId(ArrayList<User> users, String searchedUsername);
 
-    public int getSize() {
+    public int getSize2() {
         return size;
     }
 
-    public void setSize(int size) {
+    public int getMessagesQuantity() {
+        return messagesQuantity;
+    }
+
+    public void setMessagesQuantity(int messagesQuantity) {
+        this.messagesQuantity = messagesQuantity;
+    }
+
+    public void setSize2(int size) {
         this.size = size;
     }
 
-    public MessageBox getMessages(int classId) {
-        return messages.get(classId);
+    public MessageBox getMessages(int messageId) {
+        return messages.get(messageId);
     }
 
-    public void setMessages(MessageBox classIn) {
-        this.messages.add(classIn);
+    public void setMessages(MessageBox messageIn) {
+        this.messages.add(messageIn);
     }
 
     public int getAge() { return age; }

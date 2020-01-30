@@ -18,6 +18,10 @@ public class ClassEntering extends Option implements Command {
         System.out.print("Type the name of the class you want to enter: ");
         String classChose = entry.next();
         int professorId = searchingInClass.returnProfessorIdthroughClassId(classChose, users);
+        if (professorId == -1){
+            System.out.println("The class doesn't exist.");
+            return;
+        }
         System.out.println("Professor: " + (users.get(professorId)).getUsername());
         int classId = searchingInClass.returnClassId2(classChose, users, userId, professorId);
         System.out.println("Class: " + ((Professor) users.get(professorId)).getClasses(classId).getCourse());
