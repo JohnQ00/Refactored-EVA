@@ -21,7 +21,7 @@ public class Class {
     private int testIndex;
 
     ArrayList<Lessons> lessonArraylist = new ArrayList<>(500);
-    ArrayList<Tests> testsArrayList = new ArrayList<>(4);
+    ArrayList<Tests> testsArraylist = new ArrayList<>(4);
 
     public int getIndex() {
         return index;
@@ -32,35 +32,35 @@ public class Class {
     }
 
     public int getLessonsIndex() {
-        return lessonsIndex;
+        return lessonIndex;
     }
 
     public void setLessonsIndex(int lessonsIndex) {
-        this.lessonsIndex = lessonsIndex;
+        this.lessonIndex = lessonsIndex;
     }
 
     public int getTestsIndex() {
-        return testsIndex;
+        return testIndex;
     }
 
     public void setTestsIndex(int testsIndex) {
-        this.testsIndex = testsIndex;
+        this.testIndex = testsIndex;
     }
 
-    public Lessons getLessonArraylist() {
-        return lessonArraylist.get(lessonIndex);
+    public Lessons getLessonArraylist(int lessonId) {
+        return lessonArraylist.get(lessonId);
     }
 
     public void setLessonArraylist(Lessons lessonsIn) {
         this.lessonArraylist.add(lessonsIn);
     }
 
-    public Tests getTestsArrayList() {
-        return testsArrayList.get(testIndex);
+    public Tests getTestsArraylist(int testId) {
+        return testsArraylist.get(testId);
     }
 
-    public void setTestsArrayList(Tests testsIn) {
-        this.testsArrayList.add(testsIn);
+    public void setTestsArraylist(Tests testsIn) {
+        this.testsArraylist.add(testsIn);
     }
 
 

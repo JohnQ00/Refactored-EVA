@@ -32,6 +32,7 @@ public class SearchingInClass {
         if (users.get(userId).getAuthorityLevel() == 1){
             for (int i = 0; i < ((Professor) users.get(userId)).getClassesQuantity(); i++) {
                 if (classSelected.equalsIgnoreCase(((Professor) users.get(userId)).getClasses(i).getCourse())) {
+
                     return i;
                 }
             }
@@ -48,7 +49,14 @@ public class SearchingInClass {
         return -1;
     }
 
-    protected int returnProfessorIdthroughClassId(String classChose, ArrayList<User> users){
+    public void listingClasses(ArrayList<User> users, int userId){
+        for (int i = 0; i < 500; i++){
+            if (((Student) users.get(userId)).getCoursesIn()[i] != null)
+                System.out.println(((Student) users.get(userId)).getCoursesIn()[i]);
+        }
+    }
+
+    public int returnProfessorIdthroughClassId(String classChose, ArrayList<User> users){
         for (int i = 0; i < users.size(); i++){
             for (int j = 0; j < 500; j++) {
                 if (users.get(i) == null){return -1;}

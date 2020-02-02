@@ -14,6 +14,7 @@ public class TestCreation implements Factory {
     ExceptionManagement exception = new ExceptionManagement();
     Tests test;
     int id = 0;
+    int testId = 0;
 
     @Override
     public void execute(ArrayList<User> users, int userId) {
@@ -36,14 +37,14 @@ public class TestCreation implements Factory {
     private void settingInfo(ArrayList<User> users, int userId, int classId) {
         test = new Tests();
         id++;
-        int testNumber = exception.scanInt("Choose the test number: ");
-        test.setTestNumber(testNumber);
+        testId++;
+        test.setTestNumber(testId);
         ((Professor) users.get(userId)).getClasses(classId).setTestsIndex(id);
         test.setLeadingCourse(((Professor) users.get(userId)).getClasses(classId).getCourse());
         int questionQuantity = exception.scanInt("Choose the number of questions: ");
         test.setNumberofQuestions(questionQuantity);
 
-        ((Professor) users.get(userId)).getClasses(classId).setLessonArraylist(creatingQuestions(users, userId, classId, questionQuantity));
+        ((Professor) users.get(userId)).getClasses(classId).setTestsArraylist(creatingQuestions(users, userId, classId, questionQuantity));
         System.out.println("You successfully sent a test to " + ((Professor) users.get(userId)).getClasses(classId).getCourse() + " class.");
 
     }

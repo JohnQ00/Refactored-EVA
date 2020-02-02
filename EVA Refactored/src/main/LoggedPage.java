@@ -8,6 +8,7 @@ import exceptions.ExceptionManagement;
 import messages.MessageManagement;
 import profile.ProfileManagement;
 import tests.TestsManagement;
+import tests.TestsOrLessonsReceiving;
 import texts.TextOptions;
 import user.User;
 
@@ -42,7 +43,7 @@ public class LoggedPage {
         studentOptions.put("1", new ProfileManagement());
         studentOptions.put("2", new ClassEntering());
         studentOptions.put("3", new MessageManagement());
-//        studentOptions.put("4", new ProfileManagement());
+        studentOptions.put("4", new TestsOrLessonsReceiving());
 //        studentOptions.put("5", new ProfileManagement());
         professorOptions.put("1", new ProfileManagement());
         professorOptions.put("2", new ClassManagement());

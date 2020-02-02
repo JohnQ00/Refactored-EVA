@@ -1,13 +1,12 @@
 package tests;
 
 public class Lessons {
-    private int index = 0;
     private int qIndex = 0;
     private int aIndex = 0;
     private String questions[] = new String[100];
     private String alternatives[] = new String[5];
     private String leadingCourse;
-    private String lessonAnswer[] = new String[100];
+    private String lessonAnswer;
     private int numberofQuestions;
     private boolean answered = false;
 
@@ -37,13 +36,12 @@ public class Lessons {
         qIndex++;
     }
 
-    public String[] getLessonAnswer() {
+    public String getLessonAnswer() {
         return lessonAnswer;
     }
 
     public void setLessonAnswer(String lessonAnswer) {
-        this.lessonAnswer[index] = lessonAnswer;
-        index++;
+        this.lessonAnswer = lessonAnswer;
     }
 
     public int getNumberofQuestions() {
