@@ -10,6 +10,7 @@ import profile.ProfileManagement;
 import tests.TestsManagement;
 import tests.TestsOrLessonsReceiving;
 import texts.TextOptions;
+import time.Time;
 import user.User;
 
 import java.util.ArrayList;
@@ -19,6 +20,7 @@ public class LoggedPage {
     TextOptions text = new TextOptions();
     ExceptionManagement exception = new ExceptionManagement();
     Option option = new Option();
+    Time time = Time.getInstance();
 
     HashMap<String, Command> studentOptions = new HashMap<>();
     HashMap<String, Command> professorOptions= new HashMap<>();
@@ -26,6 +28,7 @@ public class LoggedPage {
     public void loginPage(ArrayList<User> users, int userId){
         fillHashMap();
         while(true) {
+            time.getDate(); // Singleton realizando apenas uma instância para todas as utilizações
             text.loggedOptions(users, users.get(userId).getId());
             int choice = exception.scanInt("Type here: ");
             if (choice == 0 || choice > 7) return;

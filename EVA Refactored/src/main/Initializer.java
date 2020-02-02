@@ -6,6 +6,7 @@ import java.util.Scanner;
 import exceptions.ExceptionManagement;
 import professor.Professor;
 import student.Student;
+import time.Administrator;
 import user.User;
 import texts.TextOptions;
 
@@ -19,6 +20,7 @@ public class Initializer {
     TextOptions text = new TextOptions();
     ExceptionManagement exception = new ExceptionManagement();
     LoggedPage login = new LoggedPage();
+    Administrator adm = new Administrator();
     int id = -1;
 
     public void Init(){
@@ -54,6 +56,8 @@ public class Initializer {
                     break;
                 }
 
+                int admin = checkingAdministrator(cpf, password);
+
                 System.out.println("Username: " + users.get(userId).getUsername());
                 if (users.get(userId).getAuthorityLevel() == 1){
                     System.out.println("You are a professor.");
@@ -69,6 +73,13 @@ public class Initializer {
         Init();
     }
 
+    private int checkingAdministrator(int cpf, String password) {
+        if (cpf == 0 && password.equals("admin")){
+            adm.managingTime();
+        }
+        return -1;
+    }
+
     public int searchUser(int cpf, String password, ArrayList<User> users) {
         for (User c: users) {
             if (c != null){
@@ -79,7 +90,7 @@ public class Initializer {
             }
         }
         return -1;
-    }//TODO Tentar passar para User, ou criar classe abstrata para User, professor e student
+    }
 
     private User setInfo(User user) {
         user.setId(id);
