@@ -7,6 +7,7 @@ import command.Option;
 import exceptions.ExceptionManagement;
 import messages.MessageManagement;
 import profile.ProfileManagement;
+import tests.TestsManagement;
 import texts.TextOptions;
 import user.User;
 
@@ -46,7 +47,7 @@ public class LoggedPage {
         professorOptions.put("1", new ProfileManagement());
         professorOptions.put("2", new ClassManagement());
         professorOptions.put("3", new MessageManagement());
-//        professorOptions.put("4", new ProfileManagement());
+        professorOptions.put("4", new TestsManagement());
 //        professorOptions.put("5", new ProfileManagement());
 //        professorOptions.put("6", new ProfileManagement());
     }

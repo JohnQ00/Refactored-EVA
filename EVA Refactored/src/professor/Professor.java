@@ -57,13 +57,6 @@ public class Professor extends User {
         this.disciplines = disciplines;
     }
 
-//    public Classes[][] getClasses() {
-//        return classes;
-//    }
-//
-//    public void setClasses(Classes[][] classes) {
-//        this.classes = classes;
-//    }
 
     public int getClassesQuantity() {
         return classesQuantity;

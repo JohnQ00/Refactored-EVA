@@ -29,7 +29,7 @@ public class ClassCreation {
         ((Professor) users.get(userId)).setClasses(classes);
         System.out.println("\nYour class was successfully created.\n");
         ((Professor) users.get(userId)).setClassesQuantity(id + 1);
-        printClass(users,userId);
+        //printClass(users,userId);
     }
 
     private void printClass(ArrayList<User> users, int userId){

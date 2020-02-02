@@ -1,5 +1,10 @@
 package classes;
 
+import tests.Lessons;
+import tests.Tests;
+
+import java.util.ArrayList;
+
 public class Class {
     private int index = 0;
     private int aIndex = 0;
@@ -12,6 +17,52 @@ public class Class {
     private String classUsers[] = new String[500];
     private int vacancies;
     private int classIndex;
+    private int lessonIndex;
+    private int testIndex;
+
+    ArrayList<Lessons> lessonArraylist = new ArrayList<>(500);
+    ArrayList<Tests> testsArrayList = new ArrayList<>(4);
+
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
+    }
+
+    public int getLessonsIndex() {
+        return lessonsIndex;
+    }
+
+    public void setLessonsIndex(int lessonsIndex) {
+        this.lessonsIndex = lessonsIndex;
+    }
+
+    public int getTestsIndex() {
+        return testsIndex;
+    }
+
+    public void setTestsIndex(int testsIndex) {
+        this.testsIndex = testsIndex;
+    }
+
+    public Lessons getLessonArraylist() {
+        return lessonArraylist.get(lessonIndex);
+    }
+
+    public void setLessonArraylist(Lessons lessonsIn) {
+        this.lessonArraylist.add(lessonsIn);
+    }
+
+    public Tests getTestsArrayList() {
+        return testsArrayList.get(testIndex);
+    }
+
+    public void setTestsArrayList(Tests testsIn) {
+        this.testsArrayList.add(testsIn);
+    }
+
 
     public int getClassIndex() {
         return classIndex;
@@ -20,8 +71,6 @@ public class Class {
     public void setClassIndex(int classIndex) {
         this.classIndex = classIndex;
     }
-//    private Lesson lessons[] = new Lesson[500];
-//    private Test tests[] = new Test[4];
 //    private Attendance attendances[] = new Attendance[500];
 
     public String getCreator() {
@@ -66,23 +115,6 @@ public class Class {
         this.vacancies = vacancies;
     }
 
-//    public Lesson[] getLessons() {
-//        return lessons;
-//    }
-//
-//    public void setLessons(Lesson lessons) {
-//        this.lessons[lessonsIndex] = lessons;
-//        lessonsIndex++;
-//    }
-//
-//    public Test[] getTests() {
-//        return tests;
-//    }
-//
-//    public void setTests(Test tests) {
-//        this.tests[testsIndex] = tests;
-//        testsIndex++;
-//    }
 //
 //    public Attendance[] getAttendances() {
 //        return attendances;

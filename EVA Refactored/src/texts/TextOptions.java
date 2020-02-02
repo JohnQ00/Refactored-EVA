@@ -67,4 +67,16 @@ public class TextOptions {
         System.out.println("1 to Send a message");
         System.out.println("2 to Check your message box");
     }
+
+    public void testOptions() {
+        System.out.println("\n0 to Return to main screen");
+        System.out.println("1 to Create a lesson");
+        System.out.println("2 to Create a final test");
+    }
+
+    public void testReceivingOptions() {
+        System.out.println("\n0 to Return to main screen");
+        System.out.println("1 to Answer a lesson");
+        System.out.println("2 to Answer a final test");
+    }
 }

@@ -28,7 +28,7 @@ public class SearchingInClass {
         return false;
     }
 
-    protected int returnClassId(String classSelected, ArrayList<User> users, int userId) {
+    public int returnClassId(String classSelected, ArrayList<User> users, int userId) {
         if (users.get(userId).getAuthorityLevel() == 1){
             for (int i = 0; i < ((Professor) users.get(userId)).getClassesQuantity(); i++) {
                 if (classSelected.equalsIgnoreCase(((Professor) users.get(userId)).getClasses(i).getCourse())) {

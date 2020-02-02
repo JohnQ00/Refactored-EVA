@@ -16,6 +16,7 @@ public class ProfileManagement extends Option implements Command {
         Scanner entry = new Scanner(System.in);
         ExceptionManagement exception = new ExceptionManagement();
 
+        @Override
         public void execute(ArrayList<User> users, int userId, Option option){
                 text.profileOptions();
                 int choice = exception.scanInt("Type here: ");
