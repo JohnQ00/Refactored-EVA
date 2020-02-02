@@ -8,7 +8,7 @@
 - [x] [Command Design](https://github.com/JohnQ00/Refactored-EVA/tree/master/EVA%20Refactored/src/command)
 - [x] [Factory Design](https://github.com/JohnQ00/Refactored-EVA/tree/master/EVA%20Refactored/src/tests)
 - [x] [Strategy Design]()
-- [x] [Singleton Design]()
+- [x] [Singleton Design](https://github.com/JohnQ00/Refactored-EVA/tree/master/EVA%20Refactored/src/time)
 
 <pre>
                                        Contato: jddcp@ic.ufal.br </pre>
