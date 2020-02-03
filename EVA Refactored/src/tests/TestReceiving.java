@@ -28,6 +28,7 @@ public class TestReceiving {
         String selectedClass = input.nextLine();
         int professorId = search.returnProfessorIdthroughClassId(selectedClass, users);
         int classId = search.returnClassId(selectedClass, users, professorId);
+        if (professorId == -1 || classId == -1){return;}
         checkingClassTests(users, userId, classId, professorId);
     }
 
@@ -61,6 +62,8 @@ public class TestReceiving {
         if (answer.equalsIgnoreCase(((Professor) users.get(professorId)).getClasses(classId).getTestsArraylist(testId).getLessonAnswer())) {
             countingCorrect++;
         }
+        float grade = ((countingCorrect * 10)/((Professor) users.get(professorId)).getClasses(classId).getTestsArraylist(testId).getNumberofQuestions());
+        ((Professor) users.get(professorId)).getClasses(classId).getTestsArraylist(testId).setTestPoints(grade, ((Professor) users.get(professorId)).getClasses(classId).getTestsArraylist(testId).getTestNumber());
         ((Professor) users.get(professorId)).getClasses(classId).getTestsArraylist(testId).setAnswered(true);
     }
 }

@@ -17,7 +17,7 @@ public class TextOptions {
         System.out.println("2 to Login");
     }
     public void creatingOptions(){
-        System.out.println("\nTo enter as a administrator just use 'admin' in all credentials.\n");
+        System.out.println("\nTo enter as a administrator just use 0 as CPF and 'admin' in password to create an account then log in with these credentials.\n");
         System.out.println("Do you want to create a professor or a student account ?\n[1 to Professor]\n[2 to Student]");
     }
     public void loggedOptions(ArrayList<User> users, int userId){
@@ -28,8 +28,9 @@ public class TextOptions {
             System.out.println("2 to Class management");
             System.out.println("3 to Message management");
             System.out.println("4 to Test management");
-            System.out.println("5 to Turn a student in a monitor");
-            System.out.println("6 to Make the attendance");
+            System.out.println("5 to Make the attendance");
+            System.out.println("6 to Turn a student in a monitor");
+
         }
         if (users.get(userId).getAuthorityLevel() == 2) {
             System.out.println("2 to Enter a class");
@@ -78,5 +79,10 @@ public class TextOptions {
         System.out.println("\n0 to Return to main screen");
         System.out.println("1 to Answer a lesson");
         System.out.println("2 to Answer a final test");
+    }
+    public void timeOptions(){
+        System.out.println("\n0 to Exit the time management");
+        System.out.println("1 to See the date");
+        System.out.println("2 to Pass the day");
     }
 }

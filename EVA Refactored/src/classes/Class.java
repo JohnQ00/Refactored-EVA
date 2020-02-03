@@ -4,12 +4,11 @@ import tests.Lessons;
 import tests.Tests;
 
 import java.util.ArrayList;
+import attendance.Attendance;
 
 public class Class {
     private int index = 0;
     private int aIndex = 0;
-    private int lessonsIndex = 0;
-    private int testsIndex = 0;
     private int classUsersIndex = 0;
     private String creator = new String();
     public int monitors[] = new int[500];
@@ -19,9 +18,18 @@ public class Class {
     private int classIndex;
     private int lessonIndex;
     private int testIndex;
+    private int attendanceIndex;
 
     ArrayList<Lessons> lessonArraylist = new ArrayList<>(500);
     ArrayList<Tests> testsArraylist = new ArrayList<>(4);
+
+    public int getAttendanceIndex() {
+        return attendanceIndex;
+    }
+
+    public void setAttendanceIndex(int attendanceIndex) {
+        this.attendanceIndex = attendanceIndex;
+    }
 
     public int getIndex() {
         return index;
@@ -71,7 +79,7 @@ public class Class {
     public void setClassIndex(int classIndex) {
         this.classIndex = classIndex;
     }
-//    private Attendance attendances[] = new Attendance[500];
+    private Attendance attendances[] = new Attendance[500];
 
     public String getCreator() {
         return creator;
@@ -81,14 +89,14 @@ public class Class {
         this.creator = creator;
     }
 
-//    public int[] getMonitors() {
-//        return monitors;
-//    }
-//
-//    public void setMonitors(int monitors) {
-//        this.monitors[index] = monitors;
-//        index++;
-//    }
+    public int[] getMonitors() {
+        return monitors;
+    }
+
+    public void setMonitors(int monitors) {
+        this.monitors[index] = monitors;
+        index++;
+    }
 
     public String getCourse() {
         return course;
@@ -115,13 +123,13 @@ public class Class {
         this.vacancies = vacancies;
     }
 
-//
-//    public Attendance[] getAttendances() {
-//        return attendances;
-//    }
-//
-//    public void setAttendances(Attendance attendances) {
-//        this.attendances[aIndex] = attendances;
-//        aIndex++;
-//    }
+
+    public Attendance[] getAttendances() {
+        return attendances;
+    }
+
+    public void setAttendances(Attendance attendances) {
+        this.attendances[aIndex] = attendances;
+        aIndex++;
+    }
 }

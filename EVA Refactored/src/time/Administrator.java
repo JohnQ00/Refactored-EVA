@@ -1,31 +1,29 @@
 package time;
 
+import exceptions.ExceptionManagement;
+import texts.TextOptions;
+
 import java.util.Scanner;
 
 public class Administrator {
 
     Scanner entry = new Scanner(System.in);
+    ExceptionManagement exception = new ExceptionManagement();
+    TextOptions text = new TextOptions();
 
     public void managingTime(){
         Time time = Time.getInstance(); //Singleton, apenas uma instância necessária.
         while(true) {
-            System.out.println("Exit the time management ?");
-            System.out.println("Type: ");
-            String exit = entry.next();
-            if (exit.equalsIgnoreCase("Yes")){break;}
-
-            System.out.println("Do you want to see the date ?");
-            System.out.print("Type: ");
-            String decisionTime = entry.next();
-            if (decisionTime.equalsIgnoreCase("Yes")) {
+            text.timeOptions();
+            int choice = exception.scanInt("Type: ");
+            if (choice == 1){
                 time.getDate();
             }
-
-            System.out.println("Do you want to pass the day ?");
-            System.out.print("Type: ");
-            String decisionTime0 = entry.next();
-            if (decisionTime0.equalsIgnoreCase("Yes")){
+            else if(choice == 2){
                 time.passDay();
+            }
+            else{
+                return;
             }
         }
     }

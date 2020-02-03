@@ -1,12 +1,15 @@
 package main;
 
+import attendance.AttendanceManagement;
 import classes.ClassEntering;
 import classes.ClassManagement;
 import command.Command;
 import command.Option;
 import exceptions.ExceptionManagement;
 import messages.MessageManagement;
+import monitor.MonitorManagement;
 import profile.ProfileManagement;
+import report.ReportManagement;
 import tests.TestsManagement;
 import tests.TestsOrLessonsReceiving;
 import texts.TextOptions;
@@ -47,12 +50,12 @@ public class LoggedPage {
         studentOptions.put("2", new ClassEntering());
         studentOptions.put("3", new MessageManagement());
         studentOptions.put("4", new TestsOrLessonsReceiving());
-//        studentOptions.put("5", new ProfileManagement());
+        studentOptions.put("5", new ReportManagement());
         professorOptions.put("1", new ProfileManagement());
         professorOptions.put("2", new ClassManagement());
         professorOptions.put("3", new MessageManagement());
         professorOptions.put("4", new TestsManagement());
-//        professorOptions.put("5", new ProfileManagement());
-//        professorOptions.put("6", new ProfileManagement());
+        professorOptions.put("5", new AttendanceManagement());
+        professorOptions.put("6", new MonitorManagement());
     }
 }

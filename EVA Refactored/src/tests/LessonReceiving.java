@@ -28,6 +28,7 @@ public class LessonReceiving {
         String selectedClass = input.nextLine();
         int professorId = search.returnProfessorIdthroughClassId(selectedClass, users);
         int classId = search.returnClassId(selectedClass, users, professorId);
+        if (professorId == -1 || classId == -1){return;}
         checkingClassLessons(users, userId, classId, professorId);
     }
 

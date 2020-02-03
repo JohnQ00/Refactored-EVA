@@ -17,7 +17,7 @@ public class SearchingInClass {
         return false;
     }
 
-    protected boolean checkIfStudentsIsInClass(ArrayList<User> users, int classId, int userId, int professorId) {
+    public boolean checkIfStudentsIsInClass(ArrayList<User> users, int classId, int userId, int professorId) {
         if (users.get(userId).getAuthorityLevel() == 2){
             for (int j = 0; j < 500; j++) {
                 if ((users.get(userId).getUsername().equals(((Professor) users.get(professorId)).getClasses(classId).getClassUsers()[j]))){
@@ -73,5 +73,19 @@ public class SearchingInClass {
             }
         }
         return -1;
+    }
+
+    public void listingProfessorClasses(ArrayList<User> users, int userId){
+        for (int i = 0; i < ((Professor) users.get(userId)).getClassesQuantity(); i++){
+            if (((Professor) users.get(userId)).getClasses(i).getCourse() != null)
+                System.out.println(((Professor) users.get(userId)).getClasses(i).getCourse());
+        }
+    }
+
+    public void listingProfessorStudents(ArrayList<User> users, int userId, int classId){
+        for (int i = 0; i < ((Professor) users.get(userId)).getClasses(classId).getVacancies(); i++){
+            if (((Professor) users.get(userId)).getClasses(classId).getClassUsers()[i] != null)
+                System.out.println(((Professor) users.get(userId)).getClasses(classId).getClassUsers()[i]);
+        }
     }
 }
