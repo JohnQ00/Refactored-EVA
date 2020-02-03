@@ -1,6 +1,6 @@
 package report;
 
-import Strategy.Context;
+import strategy.Context;
 import classes.SearchingInClass;
 import command.Command;
 import command.Option;
