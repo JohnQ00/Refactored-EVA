@@ -6,6 +6,7 @@ import command.Command;
 import command.Option;
 import exceptions.ExceptionManagement;
 import professor.Professor;
+import student.Student;
 import texts.TextOptions;
 import user.User;
 
@@ -31,6 +32,7 @@ public class ReportManagement extends Option implements Command {
         String selectedClass = input.nextLine();
         int professorId = search.returnProfessorIdthroughClassId(selectedClass, users);
         int classId = search.returnClassId(selectedClass, users, professorId);
+
         if (professorId == -1 || classId == -1){return;}
         makingTheReportCard(users, userId, professorId, classId);
     }
@@ -38,7 +40,10 @@ public class ReportManagement extends Option implements Command {
     private void makingTheReportCard(ArrayList<User> users, int userId, int professorId, int classId) {
         strategy  = new Context(users, userId, professorId, classId);
         boolean isIn = search.checkIfStudentsIsInClass(users, classId, userId, professorId);
-        if (!isIn){return;}
+
+        if (!isIn){
+            System.out.println("The student isn't in the class.");
+            return;}
         else {
             float meanCalculus = printingGrades(users, userId, professorId, classId);
 
@@ -63,12 +68,12 @@ public class ReportManagement extends Option implements Command {
 
     private float printingGrades(ArrayList<User> users, int userId, int professorId, int classId) {
         float mean = 0;
-        for (int i = 1; i < ((Professor) users.get(professorId)).getClasses(classId).getTestsIndex(); i++){
-            System.out.println("Points: " + ((Professor) users.get(professorId)).getClasses(classId).getTestsArraylist(i).getTestPoints()[i]);
-            if (((Professor) users.get(professorId)).getClasses(classId).getTestsArraylist(i).getTestPoints()[i] >= 0){
-                System.out.println("AV" + i);
-                System.out.println("Grade: " + ((Professor) users.get(professorId)).getClasses(classId).getTestsArraylist(i).getTestPoints()[i]);
-                mean += ((Professor) users.get(professorId)).getClasses(classId).getTestsArraylist(i).getTestPoints()[i];
+        System.out.println("tests points Id: " + ((Professor) users.get(professorId)).getClasses(classId).getTestsIndex());
+        for (int i = 0; i < ((Professor) users.get(professorId)).getClasses(classId).getTestsIndex(); i++){
+            if (((Student) users.get(userId)).getTestPoints()[i] >= 0){
+                System.out.println("AV" + (i + 1));
+                System.out.println("Grade: " + ((Student) users.get(userId)).getTestPoints()[i]);
+                mean += ((Student) users.get(userId)).getTestPoints()[i];
             }
         }
         return mean/ ((Professor) users.get(professorId)).getClasses(classId).getTestsIndex();

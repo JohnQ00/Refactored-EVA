@@ -3,6 +3,7 @@ package tests;
 import classes.SearchingInClass;
 import exceptions.ExceptionManagement;
 import professor.Professor;
+import student.Student;
 import user.User;
 
 import java.util.ArrayList;
@@ -63,6 +64,8 @@ public class TestReceiving {
             countingCorrect++;
         }
         float grade = ((countingCorrect * 10)/((Professor) users.get(professorId)).getClasses(classId).getTestsArraylist(testId).getNumberofQuestions());
+        ((Student) users.get(userId)).setTestPoints(grade);
+        System.out.println("nota em receiving: " + ((Student) users.get(userId)).getTestPoints()[0]);
         ((Professor) users.get(professorId)).getClasses(classId).getTestsArraylist(testId).setTestPoints(grade, ((Professor) users.get(professorId)).getClasses(classId).getTestsArraylist(testId).getTestNumber());
         ((Professor) users.get(professorId)).getClasses(classId).getTestsArraylist(testId).setAnswered(true);
     }

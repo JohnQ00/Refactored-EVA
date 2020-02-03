@@ -6,12 +6,23 @@ import java.util.ArrayList;
 
 public class Student extends User {
     private int index = 0;
+    private int testIndex = 0;
     private int registrationNumber;
     private String universityDiscipline = new String();
     private int universityPeriod;
     private int ingressionYear;
     private String coursesIn[] = new String[500];
     public boolean monitor;
+    private float testPoints[] = new float[500];
+
+    public float[] getTestPoints() {
+        return testPoints;
+    }
+
+    public void setTestPoints(float testPoints) {
+        this.testPoints[testIndex] = testPoints;
+        testIndex++;
+    }
 
     public String[] getCoursesIn() {
         return coursesIn;

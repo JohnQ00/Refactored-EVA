@@ -4,7 +4,7 @@ public class FirstStrategy implements MotherStrategy {
 
     @Override
     public boolean checkAttendance(Context attendance) {
-        if ((1/3) >= 0.25){
+        if ( (attendance.getAttendanceCounterA()/attendance.getBaseCounter()) >= 0.25){
             return true;
         }
         else
